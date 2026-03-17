@@ -95,6 +95,53 @@
       p:last-child {
         margin-bottom: 0;
       }
+
+      .organizers {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 4px;
+      }
+
+      .organizer {
+        text-align: center;
+      }
+
+      .organizer-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 12px;
+        background: #dce8f0;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .organizer-photo-placeholder {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 12px;
+        background: #dce8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        color: #90b8cc;
+        font-size: 2rem;
+      }
+
+      .organizer-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #0d1b2a;
+        margin-bottom: 2px;
+      }
+
+      .organizer-affiliation {
+        font-size: 0.78rem;
+        color: #5d7a8a;
+        line-height: 1.4;
+      }
     </style>
   </head>
   <body>
@@ -182,6 +229,55 @@
         written by AI, as well as settings and prompting styles that keep the
         ocean scientists in control.
       </p>
+
+      <hr />
+
+      <p class="section-label">Organizers</p>
+
+      <div class="organizers">
+        <div class="organizer">
+          <img
+            src="https://carolineberger.github.io/files/Caroline_Berger_Photo.jpeg"
+            alt="Caroline Berger"
+            class="organizer-photo"
+          />
+          <div class="organizer-name">Caroline Berger</div>
+          <div class="organizer-affiliation">
+            Aarhus University, Department of Computer Science
+          </div>
+        </div>
+        <div class="organizer">
+          <img
+            src="https://directory.whoi.edu/wp-content/uploads/2023/11/8K8A515122.jpg"
+            alt="Alexandra Cabanelas"
+            class="organizer-photo"
+          />
+          <div class="organizer-name">Alexandra Cabanelas</div>
+          <div class="organizer-affiliation">WHOI/MIT</div>
+        </div>
+        <div class="organizer">
+          <img
+            src="https://ipure8.au.dk/current/photos/c108d7ee-c884-4acb-a40c-df4d5307c779-new.jpg"
+            alt="Johannes Ellemose"
+            class="organizer-photo"
+          />
+          <div class="organizer-name">Johannes Ellemose</div>
+          <div class="organizer-affiliation">
+            Aarhus University, Department of Computer Science
+          </div>
+        </div>
+        <div class="organizer">
+          <img
+            src="https://cs.au.dk/~clemens/img/clemens.jpg"
+            alt="Clemens Nylandsted Klokmose"
+            class="organizer-photo"
+          />
+          <div class="organizer-name">Clemens Nylandsted Klokmose</div>
+          <div class="organizer-affiliation">
+            Aarhus University, Department of Computer Science
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
