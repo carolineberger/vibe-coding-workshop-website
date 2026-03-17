@@ -4,59 +4,133 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vibe Coding Ocean Science</title>
-   <body>
-    <h1>
-    Vibecoding Interactive Tools for Ocean Science Communication and Analysis: A Hands-On Tutorial
-    </h1>
-    <p>
-    Apart of ASLO-SIL 2026 Joint Meeting · 12-16 May 2026 · Montreal, Quebec, Canada
-    </p>
-    <p>
-      About 
-    </p>
-    <p>
-Programming is essential to the work of many ocean scientists, including their data analysis
-and mechanisms for sharing their results with the public. However, few are formally trained in
-computer programming, and as a result, ocean scientists are excluded from using tools that
-require advanced programming expertise. Without the ability to create their own custom digital
-tools and artifacts, ocean scientists' expressive power is limited. We want to change this.
-</p>
-<p>
-During this workshop, we will introduce ocean science professionals to what is known as
-vibecoding. When someone vibecodes, they create computer programs with AI but without
-touching much of the code themselves. Vibecoding is performed using agentic AIs, such as
-Claude, Copilot, or Cursor, which interact directly with programming tools and code. What
-distinguishes vibecoding from other AI programming interaction styles is that the AI agent can
-read and write code directly in the project, as opposed to simply providing snippets of code for
-the user to manually integrate into their project through copy-and-paste.
-</p>
-    <p>
-      Vibecoding, while a potentially powerful practice for ocean scientists to produce complex code,
-is not without its drawbacks. Namely, having an AI agent write code directly inside a project
-without much hands-on programming or reviewing of the code could lead to the loss of existing
-programming skills for ocean scientists. In terms of code style, the ocean scientists must adapt
-to the AI’s stylistic preferences, and vibecoding can introduce code that is difficult to debug
-inside a project.
-</p>
-    <p>
-The key benefit of vibecoding we wish to explore in the workshop is that vibecoding has the
-potential to assist ocean scientists in creating software artifacts that are beyond their computer
-programming skills. This means that they can make tools tailored to their specific needs and
-context. For example, they can create software artifacts that capture their scientific thinking to
-enhance how they analyze their data and communicate their work.
-</p>
-    <p>In this tutorial-style workshop, we will teach ocean scientists how to create interactive
-elements using vibecoding. Interactive elements enable users to input parameters, manipulate
-variables, and see results in real time, rather than passively viewing static information. Filters
-on dashboards, interactive charts, and buttons on webpages are examples of interactive
-elements. By tailoring interactive elements, ocean scientists can customize the way they
-analyze their data and present their results. The workshop consists of an introduction to
-vibecoding, hands-on learning, and a discussion on how vibe coding can be used in ocean
-science work practice. While participants are working through the exercises, facilitators will
-walk around the room to answer questions and assist participants in their learning. We will also
-address tactics to overcome the downfalls of vibecoding, such as how to test code written by
-AI, as well as settings and prompting styles that keep the ocean scientists in control.
-    </p>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-   </body>
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #f8f9fa;
+        color: #1a1a2e;
+        line-height: 1.75;
+        padding: 60px 24px 80px;
+      }
+
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 1.85rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #0d1b2a;
+        margin-bottom: 16px;
+      }
+
+      .conference-meta {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #0077b6;
+        background: #e8f4fb;
+        border: 1px solid #b6ddf0;
+        border-radius: 20px;
+        padding: 5px 14px;
+        letter-spacing: 0.3px;
+        margin-bottom: 36px;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #0077b6;
+        width: 48px;
+        margin-bottom: 28px;
+      }
+
+      .section-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #0077b6;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>
+        Vibecoding Interactive Tools for Ocean Science Communication and Analysis: A Hands-On Tutorial
+      </h1>
+      <div class="conference-meta">
+        Apart of ASLO-SIL 2026 Joint Meeting · 12-16 May 2026 · Montreal, Quebec, Canada
+      </div>
+
+      <hr />
+
+      <p class="section-label">About</p>
+
+      <p>
+        Programming is essential to the work of many ocean scientists, including their data analysis
+        and mechanisms for sharing their results with the public. However, few are formally trained in
+        computer programming, and as a result, ocean scientists are excluded from using tools that
+        require advanced programming expertise. Without the ability to create their own custom digital
+        tools and artifacts, ocean scientists' expressive power is limited. We want to change this.
+      </p>
+      <p>
+        During this workshop, we will introduce ocean science professionals to what is known as
+        vibecoding. When someone vibecodes, they create computer programs with AI but without
+        touching much of the code themselves. Vibecoding is performed using agentic AIs, such as
+        Claude, Copilot, or Cursor, which interact directly with programming tools and code. What
+        distinguishes vibecoding from other AI programming interaction styles is that the AI agent can
+        read and write code directly in the project, as opposed to simply providing snippets of code for
+        the user to manually integrate into their project through copy-and-paste.
+      </p>
+      <p>
+        Vibecoding, while a potentially powerful practice for ocean scientists to produce complex code,
+        is not without its drawbacks. Namely, having an AI agent write code directly inside a project
+        without much hands-on programming or reviewing of the code could lead to the loss of existing
+        programming skills for ocean scientists. In terms of code style, the ocean scientists must adapt
+        to the AI's stylistic preferences, and vibecoding can introduce code that is difficult to debug
+        inside a project.
+      </p>
+      <p>
+        The key benefit of vibecoding we wish to explore in the workshop is that vibecoding has the
+        potential to assist ocean scientists in creating software artifacts that are beyond their computer
+        programming skills. This means that they can make tools tailored to their specific needs and
+        context. For example, they can create software artifacts that capture their scientific thinking to
+        enhance how they analyze their data and communicate their work.
+      </p>
+      <p>In this tutorial-style workshop, we will teach ocean scientists how to create interactive
+        elements using vibecoding. Interactive elements enable users to input parameters, manipulate
+        variables, and see results in real time, rather than passively viewing static information. Filters
+        on dashboards, interactive charts, and buttons on webpages are examples of interactive
+        elements. By tailoring interactive elements, ocean scientists can customize the way they
+        analyze their data and present their results. The workshop consists of an introduction to
+        vibecoding, hands-on learning, and a discussion on how vibe coding can be used in ocean
+        science work practice. While participants are working through the exercises, facilitators will
+        walk around the room to answer questions and assist participants in their learning. We will also
+        address tactics to overcome the downfalls of vibecoding, such as how to test code written by
+        AI, as well as settings and prompting styles that keep the ocean scientists in control.
+      </p>
+    </main>
+  </body>
 </html>
