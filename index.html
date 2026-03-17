@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coding Ocean Science</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a1628 0%, #0d2b4e 40%, #0a3d62 70%, #1a5276 100%);
+      min-height: 100vh;
+      color: #e0f4ff;
+      overflow-x: hidden;
+    }
+
+    /* Animated ocean waves */
+    .waves {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 160px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160'%3E%3Cpath fill='%230077b6' fill-opacity='0.3' d='M0,80 C360,160 1080,0 1440,80 L1440,160 L0,160 Z'/%3E%3C/svg%3E") repeat-x;
+      animation: wave 8s linear infinite;
+    }
+
+    .wave:nth-child(2) {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160'%3E%3Cpath fill='%2300b4d8' fill-opacity='0.2' d='M0,100 C480,0 960,160 1440,60 L1440,160 L0,160 Z'/%3E%3C/svg%3E") repeat-x;
+      animation: wave 12s linear infinite reverse;
+      bottom: 10px;
+    }
+
+    .wave:nth-child(3) {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160'%3E%3Cpath fill='%2348cae4' fill-opacity='0.15' d='M0,60 C240,140 720,20 1440,100 L1440,160 L0,160 Z'/%3E%3C/svg%3E") repeat-x;
+      animation: wave 16s linear infinite;
+      bottom: 20px;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Floating bubbles */
+    .bubbles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -60px;
+      border-radius: 50%;
+      background: rgba(144, 224, 239, 0.15);
+      border: 1px solid rgba(144, 224, 239, 0.3);
+      animation: rise linear infinite;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.7; }
+      100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #48cae4, #90e0ef, #00b4d8, #caf0f8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #90e0ef;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 20px 40px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #caf0f8;
+      text-decoration: none;
+      padding: 10px 24px;
+      border: 1px solid rgba(144, 224, 239, 0.35);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      background: rgba(0, 119, 182, 0.15);
+    }
+
+    nav a:hover {
+      background: rgba(0, 180, 216, 0.35);
+      border-color: #48cae4;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(72, 202, 228, 0.3);
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 20px 20px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: #caf0f8;
+      margin-bottom: 16px;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #90e0ef;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    /* Cards */
+    .cards {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+
+    .card {
+      background: rgba(0, 77, 128, 0.3);
+      border: 1px solid rgba(144, 224, 239, 0.2);
+      border-radius: 18px;
+      padding: 32px 28px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 180, 216, 0.25);
+      border-color: rgba(72, 202, 228, 0.5);
+    }
+
+    .card-icon {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: #48cae4;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #90e0ef;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    /* Stats bar */
+    .stats {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding: 40px 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #48cae4;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #90e0ef;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 40px 20px 200px;
+      color: rgba(144, 224, 239, 0.5);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    footer a {
+      color: #48cae4;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated bubbles -->
+  <div class="bubbles" id="bubbles"></div>
+
+  <!-- Animated waves -->
+  <div class="waves">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+
+  <header>
+    <div class="logo">Vibe Coding Ocean Science</div>
+    <div class="tagline">Exploring the deep with code &amp; curiosity</div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#data">Data</a>
+    <a href="#team">Team</a>
+    <a href="https://github.com" target="_blank">GitHub</a>
+  </nav>
+
+  <section class="hero" id="about">
+    <h2>Where Ocean Science Meets Creative Coding</h2>
+    <p>
+      We build open-source tools, visualizations, and models to understand our oceans.
+      From deep-sea data pipelines to real-time buoy dashboards — this is science, vibes, and the sea.
+    </p>
+  </section>
+
+  <section class="cards" id="research">
+    <div class="card">
+      <div class="card-icon">🌊</div>
+      <h3>Wave Dynamics</h3>
+      <p>Modeling ocean wave patterns using real-time sensor data and Python-based spectral analysis pipelines.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🐋</div>
+      <h3>Marine Biodiversity</h3>
+      <p>Tracking migratory species and ecosystem health with machine learning classification on hydrophone recordings.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌡️</div>
+      <h3>Ocean Temperature</h3>
+      <p>Visualizing decades of temperature anomalies to understand the ocean's role in our changing climate.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤿</div>
+      <h3>Deep Sea Exploration</h3>
+      <p>Processing bathymetric sonar data to map uncharted seafloor regions and hydrothermal vent systems.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <h3>Open Source Tools</h3>
+      <p>Building community-driven libraries for oceanographic data processing, freely available on GitHub.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📡</div>
+      <h3>Satellite Observations</h3>
+      <p>Integrating NASA and ESA satellite products to monitor sea surface height, chlorophyll, and ice extent.</p>
+    </div>
+  </section>
+
+  <section class="stats" id="data">
+    <div class="stat">
+      <div class="stat-number">2.4M</div>
+      <div class="stat-label">Data Points</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">47</div>
+      <div class="stat-label">Buoy Stations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Open Datasets</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Ocean Vibes</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built with &hearts; and salty air &mdash; <a href="https://github.com" target="_blank">vibe-coding-ocean-science</a> on GitHub</p>
+  </footer>
+
+  <script>
+    // Generate floating bubbles
+    const container = document.getElementById('bubbles');
+    for (let i = 0; i < 25; i++) {
+      const b = document.createElement('div');
+      b.classList.add('bubble');
+      const size = Math.random() * 30 + 8;
+      b.style.width = size + 'px';
+      b.style.height = size + 'px';
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.animationDuration = (Math.random() * 12 + 8) + 's';
+      b.style.animationDelay = (Math.random() * 10) + 's';
+      container.appendChild(b);
+    }
+  </script>
+</body>
+</html>
